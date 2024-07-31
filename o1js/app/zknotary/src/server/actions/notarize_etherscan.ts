@@ -12,8 +12,8 @@ export type NotaryEtherscanArgs = {
 };
 
 //const NOTARY_SERVER_HOST = process.env.NOTARY_PROVER_HOST!;
-// const NOTARY_SERVER_HOST = "127.0.0.1";
-const NOTARY_SERVER_HOST = "54.83.188.45";
+const NOTARY_SERVER_HOST = "127.0.0.1";
+// const NOTARY_SERVER_HOST = "54.83.188.45";
 const NOTARY_SERVER_PORT = 8080;
 
 export async function notarize_etherscan(args: NotaryEtherscanArgs) {
