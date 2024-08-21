@@ -38,3 +38,13 @@ export const githubContent: ActiveContent = {
     "Click the 'Notarize' button to see the results.",
   ],
 };
+
+export const crik11Content: ActiveContent = {
+  title: "Crik11",
+  description:
+    "This example will show you how you can use TLS Notary to notarize the data from the Crik11 API.",
+  instructions: [
+    "Enter the match id of the Crik11 match you want to retrieve the data for.",
+    "Click the 'Notarize' button to see the results.",
+  ],
+};

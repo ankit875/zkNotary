@@ -6,7 +6,7 @@ import { MotionConfig, motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
-const navBarExamples = ["Home", "Github", "Etherscan"];
+const navBarExamples = ["Home", "Github", "Etherscan", "Crik11"];
 
 export function NavBar() {
   const { setActive, active } = useExamplesStore((state) => state);
@@ -56,6 +56,9 @@ export function NavBar() {
                     break;
                   case "Etherscan":
                     setActive("etherscan");
+                    break;
+                  case "Crik11":
+                    setActive("crik11");
                     break;
                   default:
                     break;

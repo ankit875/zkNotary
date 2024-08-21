@@ -4,7 +4,7 @@ import { TabsTrigger, TabsList, Tabs } from "@/components/ui/tabs";
 import ProofDataContainer from "@/components/proof-data-container";
 import useMeasure from "react-use-measure";
 
-import { GithubForm, EtherscanForm } from "@/components/forms/";
+import { GithubForm, EtherscanForm, Crik11Form } from "@/components/forms/";
 import { useExamplesStore } from "@/stores/examples-store";
 import { useEffect, useMemo, useState } from "react";
 import VerifiedDataContainer from "@/components/verified-data-container";
@@ -35,7 +35,7 @@ const variants = {
 
 export default function MainSectionContainer() {
   const { active, activeContent, isFetching } = useExamplesStore(
-    (state) => state
+    (state) => state,
   );
   const [currentTab, setCurrentTab] = useState<TabTitles>(TabTitles.Config);
   const [direction, setDirection] = useState<TabContentDirection>(1);
@@ -60,6 +60,8 @@ export default function MainSectionContainer() {
       return active ? (
         active === "github" ? (
           <GithubForm />
+        ) : active === "crik11" ? (
+          <Crik11Form />
         ) : (
           <EtherscanForm />
         )

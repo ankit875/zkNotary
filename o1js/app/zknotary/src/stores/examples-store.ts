@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
-import { githubContent, etherscanContent, homeContent } from "@/lib/constants";
+import { githubContent, etherscanContent, homeContent,crik11Content } from "@/lib/constants";
 import { RootSchemaValuesType } from "@/lib/proof_types";
 
-export type ExampleNames = "github" | "etherscan";
+export type ExampleNames = "github" | "etherscan" | "crik11";
 
 export type NotorizedRawData = RootSchemaValuesType;
 
@@ -78,6 +78,8 @@ export const useExamplesStore = create<ExamplesStore>()((set) => ({
           ? githubContent
           : example === "etherscan"
           ? etherscanContent
+          : example === "crik11"
+          ? crik11Content
           : homeContent,
     });
   },

@@ -1,9 +1,10 @@
-use actix_web::{web, App, HttpServer};
+use actix_web::{web, App, HttpServer, HttpResponse, Responder};
 mod discord_prover;
 mod etherscan_prover;
 mod github_prover;
 mod simple_prover;
 mod twitter_prover;
+mod crik11_prover;
 
 use http_body_util::{BodyExt as _, Either, Full};
 use hyper::client::conn::http1::Parts;
@@ -17,8 +18,26 @@ use tlsn_core::proof::{SessionProof, TlsProof};
 use tokio::net::TcpStream;
 use tokio_rustls::TlsConnector;
 use tracing::debug;
+use serde::{Serialize};
 
 use std::fmt;
+
+// #[derive(Serialize)]
+// pub struct HelloResponse {
+//     message: String,
+//     status: String,
+//     code: u16,
+// }
+
+// pub async fn hello_handler() -> impl Responder {
+//     let response = HelloResponse {
+//         message: "Hello from Actix Web!".to_string(),
+//         status: "success".to_string(),
+//         code: 200,
+//     };
+    
+//     HttpResponse::Ok().json(response)
+// }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -33,6 +52,8 @@ async fn main() -> std::io::Result<()> {
                 "/notarize_etherscan",
                 web::get().to(etherscan_prover::notarize),
             )
+            // .route("/hello", web::get().to(hello_handler))
+            // .route("/notarize_crik11", web::get().to(crik11_prover::notarize))
     })
     .bind(("0.0.0.0", 8080))?
     .run()
